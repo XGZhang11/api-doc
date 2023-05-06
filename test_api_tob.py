@@ -1,8 +1,8 @@
 import requests
 
-email = 'xxx@sensetime.com'
+email = 'xxx@example.com'
 password = 'xxx'
-base_url = "https://www.makamaka.io/api/v1b"
+base_url = "https://www.remagi.io/api/v1b"
 
 def get_token(email, password):
     """

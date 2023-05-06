@@ -1,13 +1,13 @@
-## makabaka 图片生成(i2i,t2i) 接口
+## 图片生成(i2i,t2i) 接口
 
 
 ### 获取token
 #### 创建访问
-> POST   https://www.makamaka.io/api/v1b/get_token
+> POST   https://www.remagi.io/api/v1b/get_token
 #### 请求参数
 | 参数名称     | 类型     | 是否必须  | 默认值              | 含义                                                     |
 | ----------- | --------| -------  | -------------------| --------------------------------------------------------|
-| email       | string  | 是       | "xxx@sensetime.com"| tob用户的用户邮箱                                          |
+| email       | string  | 是       | "xxx@example.com"  | tob用户的用户邮箱，需先在remagi.io注册                       |
 | password    | string  | 是       |  "password"        | tob用户密码                                               |
 
 ##### 请求示例
@@ -16,9 +16,9 @@
 ~~~python
 import requests
 
-url = 'https://www.makamaka.io/api/v1b/get_token'  
+url = 'https://www.remagi.io/api/v1b/get_token'  
 data = {
-   "email": "xxx@sensetime.com",
+   "email": "xxx@example.com",
    "password": "password",
 }  
 
@@ -40,14 +40,14 @@ print(response.text)
 
 #### 创建访问
 
-> POST   https://www.makamaka.io/api/v1b/task_submit
+> POST   https://www.remagi.io/api/v1b/task_submit
 
 #### 请求参数
 
 | 参数名称     | 类型     | 是否必须  | 默认值              | 含义                                                      |
 | ----------- | --------| -------  | ----------------- | --------------------------------------------------------- |
 | token       | string  | 是       | 无，通过get_token获得 | 通过get_token获取的token                                  |
-| model_name  | string  | 是       | Artist_V0.1.3     | 模型名称(可选值: Artist_V0.1.3, Albedo_V0.5.2, Moxin...)     |
+| model_name  | string  | 是       | Artist_V0.1.3     | 模型名称(可选值: 通过/api/v1b/get_generation_form获得)        |
 | prompt      | string  | 是       | ""                | 用于生成图片的特征描述，如："one girl,beautiful"               |
 | neg_prompt  | string  | 无       | ""                | 特征的反向描述，如："unsafe"                                  |
 | n_images    | int     | 是       | 2                 | 生成图片数量                                                 |
@@ -61,7 +61,7 @@ print(response.text)
 **curl 示例**
 
 ~~~
-curl https://www.makamaka.io/api/v1b/task_submit \
+curl https://www.remagi.io/api/v1b/task_submit \
   -H "Content-Type: application/json" \
   -d '{
     "model_name": "Artist_V0.1.3",
@@ -80,7 +80,7 @@ curl https://www.makamaka.io/api/v1b/task_submit \
 ~~~python
 import requests
 
-url = 'https://www.makamaka.io/api/v1b/task_submit'  
+url = 'https://www.remagi.io/api/v1b/task_submit'  
 data = {
     "model_name": "Artist_V0.1.3", # string 用到的模型名称（规定范围内）
     "prompt": "one girl, beautiful", # 正向描述词
@@ -110,7 +110,7 @@ print(response.text)
 
 #### 创建访问
 
-> POST       https://www.makamaka.io/api/v1b/task_result
+> POST       https://www.remagi.io/api/v1b/task_result
 
 #### 请求参数
 
@@ -124,7 +124,7 @@ print(response.text)
 **curl 示例**
 
 ~~~
-curl https://www.makamaka.io/api/v1b/task_result \
+curl https://www.remagi.io/api/v1b/task_result \
   -H "Content-Type: application/json" \
   -d '{
         "task_id": "f3e5b59c-7416-11ed-a160-00163e025c94",
@@ -137,7 +137,7 @@ curl https://www.makamaka.io/api/v1b/task_result \
 ~~~python
 import requests
 
-url = 'https://www.makamaka.io/api/v1b/task_result'  
+url = 'https://www.remagi.io/api/v1b/task_result'  
 data = {
     "task_id": "f3e5b59c-7416-11ed-a160-00163e025c94", # string 任务id
     "token": "", # get_token获取的token
@@ -193,7 +193,7 @@ print(response.text)
 
 ### 获取生成表单
 
-> GET       https://www.makamaka.io/api/v1b/get_generation_form
+> GET       https://www.remagi.io/api/v1b/get_generation_form
 
 #### 请求参数
 
@@ -206,7 +206,7 @@ print(response.text)
 ~~~python
 import requests
 
-url = 'https://www.makamaka.io/api/v1b/get_generation_form'  
+url = 'https://www.remagi.io/api/v1b/get_generation_form'  
 
 response = requests.get(url)
 
