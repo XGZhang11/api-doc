@@ -311,10 +311,10 @@ print(response.text)
 #### 请求参数
 files形式
 
-| 参数名称     | 类型     | 是否必须  | 默认值              | 含义                     |
-| ----------- | --------| -------  | ----------------- | -------------------------|
-| token       | file    | 是       | 无，通过get_token获得 | 包含在files中            |
-| files       | file    | 是        | 无                 | 图片文件                 |
+| 参数名称     | 类型     | 是否必须  | 默认值              | 含义                               |
+| ----------- | --------| -------  | ----------------- | -----------------------------------|
+| token       | file    | 是       | 无，通过get_token获得 | 包含在files中                      |
+| init_img    | file    | 是        | 无                 | 图片文件,可以多个，都以'init_img'为key|
 
 ##### 请求示例
 
@@ -546,7 +546,7 @@ print(response.text)
 ~~~json
 {'create_time': '2023-05-08 14:22:52', 'description': 'train model1 description', 'main_body': 'Style', 'model_name': 'train_model1', 'state': 'done', 'training_progress': 1.0, 'trigger_word': 'one girl'}
 ~~~
-返回训练state为状态，training_progress为进度(0-1)，状态为'done’后，可通过之前的生成接口生成图片，模型的model_name取训练时取的名字。
+返回训练state为状态，training_progress为进度(0-1)，状态为'done'后，可通过之前的生成接口生成图片，模型的model_name取训练时取的名字。
 
 ### 获取训练表单字段
 
