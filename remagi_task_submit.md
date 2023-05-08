@@ -509,11 +509,11 @@ print(response.text)
 {'code': 0, 'info': {'task_id': 'xxxxx'}, 'msg': ''}
 ~~~
 
-### 获取训练结果
+### 获取训练进度
 
 #### 创建访问
 
-> POST       https://www.remagi.io/api/v1b/train_result
+> POST       https://www.remagi.io/api/v1b/train_progress
 
 #### 请求参数
 
@@ -529,7 +529,7 @@ print(response.text)
 ~~~python
 import requests
 
-url = 'https://www.remagi.io/api/v1b/train_result'  
+url = 'https://www.remagi.io/api/v1b/train_progress'  
 data = {
     "token": "", # get_token获取的token
     "task_id": "xxxxxx", # 训练任务的task_id
