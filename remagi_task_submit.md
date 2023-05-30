@@ -55,6 +55,7 @@ print(response.text)
 | select_seed | int     | 否       | -1                | 随机数种子                                                   |
 | output_size | string  | 是       | 960x960           | 图片的输出尺寸，如："960x960"                                 |
 | init_img    | string  | 否       | ""                | 输入图片，url形式，若有即为i2i(图生图)，无即为t2i(文生图)         |
+| controlnet_model    | string  | 否       | ""                | 若为空则不启用controlnet,可选值为"openpose","canny","depth","fake_scribble","scribble","hed","hough","normal","seg" (目前canny已启用)         |
 
 ##### 请求示例
 
