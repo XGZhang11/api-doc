@@ -2,7 +2,7 @@ import requests
 
 email = 'xxx@example.com'
 password = 'xxx'
-base_url = "https://www.remagi.io/api/v1b"
+base_url = "http://miaohua.sensetime.com/api/v1b"
 
 def get_token(email, password):
     """
@@ -26,8 +26,8 @@ def get_token(email, password):
     return response
 
 
-def task_submit(token, model_name='Artist_V0.1.3', prompt="", neg_prompt="", n_images=2,
-                   scale=7, output_size="640x640", select_seed=-1, init_img="", controlnet_model=""):
+def task_submit(token, model_name='Artist_V0.1.3', prompt="one girl", neg_prompt="", n_images=2,
+                   scale=7, output_size="960x960", select_seed=-1, init_img="", controlnet_model=""):
     """
     发起任务
     params: 
@@ -64,7 +64,7 @@ def task_submit(token, model_name='Artist_V0.1.3', prompt="", neg_prompt="", n_i
         "init_img": init_img,
         "controlnet_model": controlnet_model,
     }
-    response = requests.post(base_url + "/txt2img_submit", json=data).json()
+    response = requests.post(base_url + "/task_submit", json=data).json()
     return response
 
 

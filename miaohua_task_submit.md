@@ -70,9 +70,11 @@ curl http://miaohua.sensetime.com/api/v1b/task_submit \
     "neg_prompt": "unsafe", 
     "n_images": 2,
     "scale": 7, 
-    "output_size": "640x640",
+    "output_size": "960x960",
     "select_seed": -1,
-    ”token": "",
+    "token": "",
+    "init_img": "",
+    "controlnet_model": "",
   }'
 ~~~
 
@@ -88,8 +90,10 @@ data = {
     "neg_prompt": "unsafe", # 反向描述词
     "n_images": 2, # int 生成图片的数量
     "scale": 7, # int 文本控制力度
-    "output_size": "640x640", # string 生成的图片尺寸
-    "select_seed": 0, # int 随机数种子。如果是-1的话代表不指定
+    "output_size": "960x960", # string 生成的图片尺寸
+    "select_seed": -1, # int 随机数种子。如果是-1的话代表不指定
+    "init_img": "", # img url,若为空为文生图，否则为图生图
+    "controlnet_model": "", # controlnet模型，若为空则不启用controlnet,启用时需要init_img不为空
     "token": "",  # get_token获取的token
 }  
 
@@ -186,9 +190,6 @@ print(response.text)
         },
     ],, # list 图片路径
     "error_msg": "Intern error", # string 错误信息
-    "wait_time": true, # bool 前方等待人数
-    "select_seed": true, # bool 该任务用到的随机数种子
-    "fav": true, # bool 是否被标记为收藏
 }
 ~~~
 
@@ -296,7 +297,14 @@ print(response.text)
       "description": "init image url", 
       "name": "init_img", 
       "type": "str"
-    }, 
+    },
+    {
+      "default": "", 
+      "description": "controlnet model", 
+      "name": "controlnet_model", 
+      "type": "str",
+      "choices": ["", "canny"],
+    },
   ], 
   "msg": ""
 }
