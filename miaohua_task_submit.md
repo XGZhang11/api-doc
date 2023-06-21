@@ -97,7 +97,7 @@ print(response.text)
             "prompt_tokens": 6,
             "completion_tokens": 6,
             "total_tokens": 12,
-            "picture": 0(or 1)
+            "picture": 0/1
         }
         "status": 0,
     }
