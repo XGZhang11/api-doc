@@ -89,14 +89,15 @@ print(response.text)
         "id":"4b44cd86cd2c000"
         "choices":[
         	{ 
-              "content": "this is a test!",
+              "content": "this is a test!(or the url of the generated picture)",
               "finish_reason": "stop"
             }
         ],
         "usage": {
             "prompt_tokens": 6,
             "completion_tokens": 6,
-            "total_tokens": 12
+            "total_tokens": 12,
+            "picture": 0(or 1),
         }
         "status": 0,
     }
