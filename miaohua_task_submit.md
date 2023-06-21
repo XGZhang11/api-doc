@@ -1,40 +1,96 @@
-## 图片生成(i2i,t2i) 接口
+## 融合接口
 
+## 对话
 
-### 获取token
-#### 创建访问
-> POST   http://miaohua.sensetime.com/api/v1b/get_token
-#### 请求参数
-| 参数名称     | 类型     | 是否必须  | 默认值              | 含义                                                     |
-| ----------- | --------| -------  | -------------------| --------------------------------------------------------|
-| email       | string  | 是       | "xxx@example.com"  | tob用户的用户邮箱，需先在miaohua.sensetime.com注册           |
-| password    | string  | 是       |  "password"        | tob用户密码                                               |
+> POST    https://lm_experience.sensetime.com/nlp/v1/chat/completions
 
-##### 请求示例
+该接口提供聊天功能，通过 POST 方式创建 url 请求，注意请求的 http Header 中需要包含 Authorization 项，其值为你申请得到的 API_SECRET_KEY。
+
+### 请求参数
+
+| 参数名称           | 类型   | 是否必须 | 默认值 | 含义                                                                                                       |
+| ------------------ | ------ | -------- | ------ | ---------------------------------------------------------------------------------------------------------- |
+| messages             | array | 是       | 无     | 对话上下文，数组中的对象为聊天的上下文信息，格式如 <br>`[{"role": "user", "content": Say this is a test!"}]`, role取值user或assistant|
+| temperature          | float | 否       | 0.8    | 温度采样参数，取值(0,2]。大于1的值倾向于生成更加多样的回复，小于1倾向于生成更加稳定的回复       
+| top_p                | float | 否       | 0.7    | 核采样参数，取值(0,1]。解码生成token时，在概率和大于等于top_p的最小token集合中进行采样        
+| max_new_tokens       | int   | 否       | 2048   | token生成的最大数量        
+| repetition_penalty   | float | 否       | 1      | 重复惩罚系数，1代表不惩罚，大于1倾向于生成不重复token，小于1倾向于生成重复token     
+| stream               | bool  | 否       | false  | 是否使用流式传输，如果开启，数据将按照data-only server-sent events传输中间结果，并以`data: [DONE]`结束   
+| user                 | string| 否       |        | 用户ID                                                                                                    |
+
+#### 请求示例
+
+**curl 示例**
+
+~~~
+curl https://lm_experience.sensetime.com/nlp/v1/chat/completions \
+  -H "Content-Type: application/json" \
+  -H "Authorization: $API_SECRET_KEY" \
+  -d '{
+        "messages": [{"role": "user", "content": "Say this is a test!"}],
+        "temperature": 0.8,
+        "top_p": 0.7,
+        "max_new_tokens": 2048,
+        "repetition_penalty": 1,
+        "stream": false,
+        "user_id": "test"
+  }'
+~~~
+
 **python示例**
 
 ~~~python
 import requests
+api_secret_key = "xxxxxxxxxx"  # your api_secret_key
 
-url = 'http://miaohua.sensetime.com/api/v1b/get_token'  
+url = 'https://lm_experience.sensetime.com/nlp/v1/chat/completions'  
 data = {
-   "email": "xxx@example.com",
-   "password": "password",
+    "messages": [{"role": "user", "content": "Say this is a test!"}],
+    "temperature": 0.8,
+    "top_p": 0.7,
+    "max_new_tokens": 2048,
+    "repetition_penalty": 1,
+    "stream": false,
+    "user_id": "test"
 }  
+headers = {
+    'Content-Type': 'application/json',
+    'Authorization': api_secret_key
+}
 
-response = requests.post(url, json=data)
+response = requests.post(url, headers=headers, json=data)
 
 print(response.status_code) 
 print(response.text)
 ~~~
 
-##### 返回示例
+#### 返回示例
 
 ~~~json
 {
-    "token": "xxxxxxxxxxxxxxxxxx", # string 当前用户token
+    "code":200,
+    "msg":"ok",
+    "data":{
+        "id":"4b44cd86cd2c000"
+        "choices":[
+        	{ 
+              "content": "this is a test!",
+              "finish_reason": "stop"
+            }
+        ],
+        "usage": {
+            "prompt_tokens": 6,
+            "completion_tokens": 6,
+            "total_tokens": 12
+        }
+        "status": 0,
+    }
 }
 ~~~
+
+
+
+
 
 ### 任务提交
 
