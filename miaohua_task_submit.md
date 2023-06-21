@@ -53,7 +53,7 @@ curl https://...... \
 import requests
 api_secret_key = "xxxxxxxxxx"  # your api_secret_key
 
-url = 'https://lm_experience.sensetime.com/nlp/v1/chat/completions'  
+url = 'https://......'  
 data = {
       "messages": [{"role": "user", "content": "Say this is a test!"}],
       "temperature": 0.8,
