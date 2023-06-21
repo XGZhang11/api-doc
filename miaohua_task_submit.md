@@ -18,9 +18,8 @@
 | user                 | string| 否       |        | 用户ID
 | chat_key             | string| 是       | 无     | chat api的key
 | miaohua_token        | string| 是       | 无     | miaohua的token
-| model_name           | string| 是       | Artist_V0.1.3 ｜ 秒画模型名称
-| controlnet_model     | string| 否       | ""     | 若为空则不启用controlnet,可选值为"openpose","canny","depth","fake_scribble","scribble","hed","hough","normal","seg" 
-        |
+| model_name           | string| 是       | Artist_V0.1.3 | 秒画模型名称
+| controlnet_model     | string| 否       | ""     | 若为空则不启用controlnet,可选值为"openpose","canny","depth","fake_scribble","scribble","hed","hough","normal","seg" |
 
 #### 请求示例
 
