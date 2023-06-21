@@ -3,7 +3,7 @@
 
 > POST    https://......
 
-该接口提供聊天和画图功能，通过 POST 方式创建 url 请求。
+该接口提供聊天和画图功能，通过 POST 方式创建 url 请求，注意请求的 http Header 中需要包含 Authorization 项，其值为你申请得到的 API_SECRET_KEY。
 
 ### 请求参数
 
@@ -15,8 +15,7 @@
 | max_new_tokens       | int   | 否       | 2048   | chat的token生成的最大数量        
 | repetition_penalty   | float | 否       | 1      | chat重复惩罚系数，1代表不惩罚，大于1倾向于生成不重复token，小于1倾向于生成重复token     
 | stream               | bool  | 否       | false  | chat是否使用流式传输，如果开启，数据将按照data-only server-sent events传输中间结果，并以`data: [DONE]`结束   
-| user                 | string| 否       |        | 用户ID
-| chat_key             | string| 是       | 无     | chat api的key
+| user_id              | string| 否       |        | 用户ID
 | miaohua_token        | string| 是       | 无     | miaohua的token
 | model_name           | string| 是       | Artist_V0.1.3 | 秒画模型名称
 | output_size          | string| 是       | 960x960| 图片的输出尺寸，如："960x960"
@@ -39,7 +38,12 @@ curl https://lm_experience.sensetime.com/nlp/v1/chat/completions \
         "max_new_tokens": 2048,
         "repetition_penalty": 1,
         "stream": false,
-        "user_id": "test"
+        "user_id": "test",
+        "miaohua_token": $MIAOHUA_TOKEN,
+        "model_name": "Artist_V0.1.3",
+        "scale": 7, 
+        "output_size": "640x640",
+        "select_seed": -1,
   }'
 ~~~
 
@@ -51,14 +55,19 @@ api_secret_key = "xxxxxxxxxx"  # your api_secret_key
 
 url = 'https://lm_experience.sensetime.com/nlp/v1/chat/completions'  
 data = {
-    "messages": [{"role": "user", "content": "Say this is a test!"}],
-    "temperature": 0.8,
-    "top_p": 0.7,
-    "max_new_tokens": 2048,
-    "repetition_penalty": 1,
-    "stream": false,
-    "user_id": "test"
-}  
+      "messages": [{"role": "user", "content": "Say this is a test!"}],
+      "temperature": 0.8,
+      "top_p": 0.7,
+      "max_new_tokens": 2048,
+      "repetition_penalty": 1,
+      "stream": false,
+      "user_id": "test",
+      "miaohua_token": $MIAOHUA_TOKEN,
+      "model_name": "Artist_V0.1.3",
+      "scale": 7, 
+      "output_size": "640x640",
+      "select_seed": -1,
+}
 headers = {
     'Content-Type': 'application/json',
     'Authorization': api_secret_key
