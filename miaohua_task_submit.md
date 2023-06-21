@@ -19,6 +19,9 @@
 | chat_key             | string| 是       | 无     | chat api的key
 | miaohua_token        | string| 是       | 无     | miaohua的token
 | model_name           | string| 是       | Artist_V0.1.3 | 秒画模型名称
+| output_size          | string| 是       | 960x960| 图片的输出尺寸，如："960x960"
+| select_seed          | int   | 否       | -1     | 随机数种子
+| scale                | int   | 是       | 7      | 文本控制力度(1-20)  
 | controlnet_model     | string| 否       | ""     | 若为空则不启用controlnet,可选值为"openpose","canny","depth","fake_scribble","scribble","hed","hough","normal","seg" |
 
 #### 请求示例
