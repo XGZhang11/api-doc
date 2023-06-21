@@ -28,7 +28,7 @@
 **curl 示例**
 
 ~~~
-curl https://lm_experience.sensetime.com/nlp/v1/chat/completions \
+curl https://...... \
   -H "Content-Type: application/json" \
   -H "Authorization: $API_SECRET_KEY" \
   -d '{
