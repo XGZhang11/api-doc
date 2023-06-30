@@ -16,12 +16,12 @@
 | repetition_penalty   | float | 否       | 1      | chat重复惩罚系数，1代表不惩罚，大于1倾向于生成不重复token，小于1倾向于生成重复token     
 | stream               | bool  | 否       | false  | chat是否使用流式传输，如果开启，数据将按照data-only server-sent events传输中间结果，并以`data: [DONE]`结束   
 | user_id              | string| 否       |        | 用户ID
-| miaohua_token        | string| 是       | 无     | miaohua的token
-| model_name           | string| 是       | Artist_V0.1.3 | 秒画模型名称
-| output_size          | string| 是       | 960x960| 图片的输出尺寸，如："960x960"
-| select_seed          | int   | 否       | -1     | 随机数种子
-| scale                | int   | 是       | 7      | 文本控制力度(1-20)  
-| controlnet_model     | string| 否       | ""     | 若为空则不启用controlnet,可选值为"openpose","canny","depth","fake_scribble","scribble","hed","hough","normal","seg" |
+| mh_key        | string| 是       | 无     | miaohua的token
+| mh_model_name           | string| 是       | Artist_V0.1.3 | 秒画模型名称
+| mh_output_size          | string| 是       | 960x960| 图片的输出尺寸，如："960x960"
+| mh_select_seed          | int   | 否       | -1     | 随机数种子
+| mh_scale                | int   | 是       | 7      | 文本控制力度(1-20)  
+| mh_controlnet_model     | string| 否       | ""     | 若为空则不启用controlnet,可选值为"openpose","canny","depth","fake_scribble","scribble","hed","hough","normal","seg" |
 
 #### 请求示例
 
@@ -39,11 +39,11 @@ curl https://...... \
         "repetition_penalty": 1,
         "stream": false,
         "user_id": "test",
-        "miaohua_token": $MIAOHUA_TOKEN,
-        "model_name": "Artist_V0.1.3",
-        "scale": 7, 
-        "output_size": "640x640",
-        "select_seed": -1,
+        "mh_key": $MIAOHUA_TOKEN,
+        "mh_model_name": "Artist_V0.1.3",
+        "mh_scale": 7, 
+        "mh_output_size": "640x640",
+        "mh_select_seed": -1,
   }'
 ~~~
 
@@ -62,11 +62,11 @@ data = {
       "repetition_penalty": 1,
       "stream": false,
       "user_id": "test",
-      "miaohua_token": $MIAOHUA_TOKEN,
-      "model_name": "Artist_V0.1.3",
-      "scale": 7, 
-      "output_size": "640x640",
-      "select_seed": -1,
+      "mh_key": $MIAOHUA_TOKEN,
+      "mh_model_name": "Artist_V0.1.3",
+      "mh_scale": 7, 
+      "mh_output_size": "640x640",
+      "mh_select_seed": -1,
 }
 headers = {
     'Content-Type': 'application/json',
