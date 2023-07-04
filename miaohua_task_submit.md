@@ -27,7 +27,7 @@
 #### 请求示例
 
 **curl 示例**
-
+示例中的API_SECRET_KEY为sensechat的API_SECRET_KEY，MIAOHUA_TOKEN是秒画的token。
 ~~~
 curl https://sensenova.sensetime.com/v1/fusion/chat-with-image \
   -H "Content-Type: application/json" \
@@ -44,7 +44,7 @@ curl https://sensenova.sensetime.com/v1/fusion/chat-with-image \
         "mh_model_name": "Artist_V0.1.3",
         "mh_scale": 7, 
         "mh_output_size": "640x640",
-        "mh_select_seed": -1,
+        "mh_select_seed": -1
   }'
 ~~~
 
@@ -67,7 +67,7 @@ data = {
       "mh_model_name": "Artist_V0.1.3",
       "mh_scale": 7, 
       "mh_output_size": "640x640",
-      "mh_select_seed": -1,
+      "mh_select_seed": -1
 }
 headers = {
     'Content-Type': 'application/json',
