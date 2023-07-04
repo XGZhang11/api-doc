@@ -29,7 +29,7 @@
 **curl 示例**
 
 ~~~
-curl https://...... \
+curl https://sensenova.sensetime.com/v1/fusion/chat-with-image \
   -H "Content-Type: application/json" \
   -H "Authorization: $API_SECRET_KEY" \
   -d '{
@@ -54,7 +54,7 @@ curl https://...... \
 import requests
 api_secret_key = "xxxxxxxxxx"  # your api_secret_key
 
-url = 'https://......'  
+url = 'https://sensenova.sensetime.com/v1/fusion/chat-with-image'  
 data = {
       "messages": [{"role": "user", "content": "Say this is a test!"}],
       "temperature": 0.8,
