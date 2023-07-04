@@ -3,7 +3,7 @@
 
 > POST    https://sensenova.sensetime.com/v1/fusion/chat-with-image
 
-目前支持stream为false
+支持流式与非流式
 该接口提供聊天和画图功能，通过 POST 方式创建 url 请求，注意请求的 http Header 中需要包含 Authorization 项，其值为你申请得到的sensechat的 API_SECRET_KEY。
 
 ### 请求参数
@@ -80,7 +80,7 @@ print(response.status_code)
 print(response.text)
 ~~~
 
-#### 返回示例
+#### 非流式返回示例
 
 ~~~json
 {
@@ -105,5 +105,14 @@ print(response.text)
 }
 ~~~
 
+### 流式返回示例
 
+~~~json
+{"code": 200, "msg": "ok", "data": {"id": "506ccf912403000", "choices": [{"delta": " This"}], "usage": {"prompt_tokens": 0, "completion_tokens": 0, "total_tokens": 0, "picture": false}, "status": 0}}
+{"code": 200, "msg": "ok", "data": {"id": "506ccf912403000", "choices": [{"delta": " is"}], "usage": {"prompt_tokens": 0, "completion_tokens": 0, "total_tokens": 0, "picture": false}, "status": 0}}
+{"code": 200, "msg": "ok", "data": {"id": "506ccf912403000", "choices": [{"delta": " a"}], "usage": {"prompt_tokens": 0, "completion_tokens": 0, "total_tokens": 0, "picture": false}, "status": 0}}
+{"code": 200, "msg": "ok", "data": {"id": "506ccf912403000", "choices": [{"delta": " test"}], "usage": {"prompt_tokens": 0, "completion_tokens": 0, "total_tokens": 0, "picture": false}, "status": 0}}
+{"code": 200, "msg": "ok", "data": {"id": "506ccf912403000", "choices": [{"delta": "."}], "usage": {"prompt_tokens": 0, "completion_tokens": 0, "total_tokens": 0, "picture": false}, "status": 0}}
+{"code": 200, "msg": "ok", "data": {"id": "506ccf912403000", "choices": [{"message": "This is a test.", "finish_reason": "stop"}], "usage": {"prompt_tokens": 461, "completion_tokens": 22, "total_tokens": 483, "picture": false}, "status": 0}}
+~~~
 
