@@ -16,7 +16,8 @@
 | max_new_tokens       | int   | 否       | 2048   | chat的token生成的最大数量        
 | repetition_penalty   | float | 否       | 1      | chat重复惩罚系数，1代表不惩罚，大于1倾向于生成不重复token，小于1倾向于生成重复token     
 | stream               | bool  | 否       | false  | chat是否使用流式传输，如果开启，数据将按照data-only server-sent events传输中间结果，并以`data: [DONE]`结束   
-| user_id              | string| 否       |        | 用户ID
+| user_id              | string| 是       |        | 用户ID
+| output_img           | bool  | 否       | true   | 是否输出秒画生成的图片。如果为false，则对画图请求只做意图判断，如果是画图请求，则输出"This is a drawing request*&^**#"，如果不是画图请求，则正常输出对话内容
 | mh_key        | string| 是       | 无     | miaohua的token
 | mh_model_name           | string| 是       | Artist_V0.1.3 | 秒画模型名称
 | mh_output_size          | string| 是       | 960x960| 图片的输出尺寸，如："960x960"
