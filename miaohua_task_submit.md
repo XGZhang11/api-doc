@@ -140,3 +140,28 @@ print(response.text)
   "msg": "OK"
 }
 ~~~
+
+
+### 秒画模型指定错误的返回示例
+
+~~~json
+{
+  "code": 0,
+  "data": {
+    "choices": [
+      {
+        "content": "不支持的模型: Artist_V0.3.0 Beta",
+        "finish_reason": "stop"
+      }
+    ],
+    "id": "53c97969538f000",
+    "status": 0,
+    "usage": {
+      "completion_tokens": 38,
+      "picture": true,
+      "total_tokens": 408
+    }
+  },
+  "msg": "OK"
+}
+~~~
