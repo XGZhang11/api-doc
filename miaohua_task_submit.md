@@ -110,12 +110,11 @@ print(response.text)
 ### 流式返回示例
 
 ~~~json
-{"code": 200, "msg": "ok", "data": {"id": "506ccf912403000", "choices": [{"delta": " This"}], "usage": {"prompt_tokens": 0, "completion_tokens": 0, "total_tokens": 0, "picture": false}, "status": 0}}
-{"code": 200, "msg": "ok", "data": {"id": "506ccf912403000", "choices": [{"delta": " is"}], "usage": {"prompt_tokens": 0, "completion_tokens": 0, "total_tokens": 0, "picture": false}, "status": 0}}
-{"code": 200, "msg": "ok", "data": {"id": "506ccf912403000", "choices": [{"delta": " a"}], "usage": {"prompt_tokens": 0, "completion_tokens": 0, "total_tokens": 0, "picture": false}, "status": 0}}
-{"code": 200, "msg": "ok", "data": {"id": "506ccf912403000", "choices": [{"delta": " test"}], "usage": {"prompt_tokens": 0, "completion_tokens": 0, "total_tokens": 0, "picture": false}, "status": 0}}
-{"code": 200, "msg": "ok", "data": {"id": "506ccf912403000", "choices": [{"delta": "."}], "usage": {"prompt_tokens": 0, "completion_tokens": 0, "total_tokens": 0, "picture": false}, "status": 0}}
-{"code": 200, "msg": "ok", "data": {"id": "506ccf912403000", "choices": [{"message": "This is a test.", "finish_reason": "stop"}], "usage": {"prompt_tokens": 461, "completion_tokens": 22, "total_tokens": 483, "picture": false}, "status": 0}}
+{"code": 0, "msg": "OK", "data": {"id": "53c96a73178f000", "choices": [{"finish_reason": "", "delta": " This"}], "usage": {"completion_tokens": 0, "total_tokens": 0, "picture": false}, "status": 0}}
+{"code": 0, "msg": "OK", "data": {"id": "53c96a73178f000", "choices": [{"finish_reason": "", "delta": " is"}], "usage": {"completion_tokens": 0, "total_tokens": 0, "picture": false}, "status": 0}}
+{"code": 0, "msg": "OK", "data": {"id": "53c96a73178f000", "choices": [{"finish_reason": "", "delta": " a"}], "usage": {"completion_tokens": 0, "total_tokens": 0, "picture": false}, "status": 0}}
+{"code": 0, "msg": "OK", "data": {"id": "53c96a73178f000", "choices": [{"finish_reason": "", "delta": " test"}], "usage": {"completion_tokens": 0, "total_tokens": 0, "picture": false}, "status": 0}}
+{"code": 0, "msg": "OK", "data": {"id": "53c96a73178f000", "choices": [{"finish_reason": "stop", "delta": ""}], "usage": {"completion_tokens": 5, "total_tokens": 56, "picture": false}, "status": 0}}
 ~~~
 
 ### 触发秒画敏感词时的返回示例
