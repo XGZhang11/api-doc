@@ -118,3 +118,26 @@ print(response.text)
 {"code": 200, "msg": "ok", "data": {"id": "506ccf912403000", "choices": [{"message": "This is a test.", "finish_reason": "stop"}], "usage": {"prompt_tokens": 461, "completion_tokens": 22, "total_tokens": 483, "picture": false}, "status": 0}}
 ~~~
 
+### 触发秒画敏感词时的返回示例
+
+~~~json
+{
+  "code": 0,
+  "data": {
+    "choices": [
+      {
+        "content": "我们检测到您的提示词中有敏感词语。请勿使用违反社区条约的提示词。",
+        "finish_reason": "stop"
+      }
+    ],
+    "id": "53c8dbea5160000",
+    "status": 0,
+    "usage": {
+      "completion_tokens": 40,
+      "picture": true,
+      "total_tokens": 413
+    }
+  },
+  "msg": "OK"
+}
+~~~
