@@ -1,7 +1,7 @@
 ## 融合接口
 
 
-> POST    https://sensenova.sensetime.com/v1/fusion/chat-with-image
+> POST    https://sensenova.sensetime.com/v1/fusion-new/chat-with-image
 
 支持流式与非流式
 该接口提供聊天和画图功能，通过 POST 方式创建 url 请求，注意请求的 http Header 中需要包含 Authorization 项，其值为你申请得到的sensechat的 API_SECRET_KEY。
