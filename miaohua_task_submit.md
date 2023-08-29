@@ -32,7 +32,7 @@
 **curl 示例**
 示例中的API_SECRET_KEY为sensechat的API_SECRET_KEY，MIAOHUA_TOKEN是秒画的token。
 ~~~
-curl https://sensenova.sensetime.com/v1/fusion/chat-with-image \
+curl https://sensenova.sensetime.com/v1/fusion-new/chat-with-image \
   -H "Content-Type: application/json" \
   -H "Authorization: $API_SECRET_KEY" \
   -d '{
@@ -57,7 +57,7 @@ curl https://sensenova.sensetime.com/v1/fusion/chat-with-image \
 import requests
 api_secret_key = "xxxxxxxxxx"  # your api_secret_key
 
-url = 'https://sensenova.sensetime.com/v1/fusion/chat-with-image'  
+url = 'https://sensenova.sensetime.com/v1/fusion-new/chat-with-image'  
 data = {
       "messages": [{"role": "user", "content": "Say this is a test!"}],
       "temperature": 0.8,
