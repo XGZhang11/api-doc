@@ -64,7 +64,7 @@ data = {
       "top_p": 0.7,
       "max_new_tokens": 2048,
       "repetition_penalty": 1,
-      "stream": false,
+      "stream": True,
       "user_id": "test",
       "mh_key": $MIAOHUA_TOKEN,
       "mh_model_name": "Artist_V0.1.3",
