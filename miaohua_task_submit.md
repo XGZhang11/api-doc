@@ -20,7 +20,7 @@
 | output_img           | bool  | 否       | true   | 是否输出秒画生成的图片。如果为false，则对画图请求只做意图判断，如果是画图请求，则输出"This is a drawing request*&^**#"，如果不是画图请求，则正常输出对话内容
 | mh_key        | string| 是       | 无     | miaohua的token
 | mh_add_prompt | bool  | 否       | false     | miaohua的提示词优化
-| mh_ddim_steps | int   | 否       ｜ 50     ｜ 秒画的ddim_steps
+| mh_ddim_steps | int   | 否       | 50     | 秒画的ddim_steps
 | mh_model_name           | string| 是       | Artist_V0.1.3 | 秒画模型名称
 | mh_output_size          | string| 是       | 960x960| 图片的输出尺寸，如："960x960"
 | mh_select_seed          | int   | 否       | -1     | 随机数种子
