@@ -1,7 +1,7 @@
 ## 融合接口
 
 
-> POST    https://sensenova.sensetime.com/v1/fusion-new/chat-with-image
+> POST    https://sensenova.sensetime.com/v1/fusion/chat-with-image
 
 支持流式
 该接口提供聊天和画图功能，通过 POST 方式创建 url 请求，注意请求的 http Header 中需要包含 Authorization 项，其值为你申请得到的sensechat的 API_SECRET_KEY。
@@ -32,7 +32,7 @@
 **curl 示例**
 示例中的API_SECRET_KEY为sensechat的API_SECRET_KEY，MIAOHUA_TOKEN是秒画的token。
 ~~~
-curl https://sensenova.sensetime.com/v1/fusion-new/chat-with-image \
+curl https://sensenova.sensetime.com/v1/fusion/chat-with-image \
   -H "Content-Type: application/json" \
   -H "Authorization: $API_SECRET_KEY" \
   -d '{
@@ -57,7 +57,7 @@ curl https://sensenova.sensetime.com/v1/fusion-new/chat-with-image \
 import requests
 api_secret_key = "xxxxxxxxxx"  # your api_secret_key
 
-url = 'https://sensenova.sensetime.com/v1/fusion-new/chat-with-image'  
+url = 'https://sensenova.sensetime.com/v1/fusion/chat-with-image'  
 data = {
       "messages": [{"role": "user", "content": "Say this is a test!"}],
       "temperature": 0.8,
